@@ -10,10 +10,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { DropdownMenuGroup } from '@radix-ui/react-dropdown-menu';
 
-export default function Header() {
+interface HeaderProps {
+  tabName: string;
+  setTabName: (tabName: string) => void;
+}
+
+export default function Header({tabName, setTabName}: HeaderProps) {
   return (
-    // ToDo not centered
-    <header className="flex justify-between items-center px-10 h-20">  
+    <header className="flex justify-between items-center px-10 h-20">
 
       <div className="flex-1">
         <svg width="100" height="32" viewBox="0 0 100 32" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -32,7 +36,7 @@ export default function Header() {
             <div className="flex border w-[86px] h-12 p-4 rounded-full border-slate-400 items-center justify-around">
               <Menu size={16} />
               <div className="bg-slate-400 rounded-full p-1">
-                <UserRound className="rounded-full" />
+                <UserRound className="rounded-full" color="white" />
               </div>
             </div>
           </DropdownMenuTrigger>
